@@ -27,7 +27,7 @@
 <nav class="links" aria-label="Project resources"><a href="assets/paper.pdf" target="_blank" rel="noopener">Paper (draft PDF)</a><a href="#demonstrations">Videos</a><a href="#results">Results</a><a href="#motion">Contact &amp; Motion</a><a href="#randomization">Randomization</a></nav>
 </header>
 <figure id="contact-entry">
-<video controls playsinline preload="metadata" poster="assets/real-command-overlay-poster.jpg?v=2" aria-label="Close-up of a real drawer pausing at the opening, changing alignment, and advancing, with recorded target and measured motion"><source src="assets/real-command-overlay.mp4?v=2" type="video/mp4"></video>
+<video controls autoplay muted loop playsinline preload="auto" poster="assets/real-command-overlay-poster.jpg?v=2" aria-label="Close-up of a real drawer pausing at the opening, changing alignment, and advancing, with recorded target and measured motion"><source src="assets/real-command-overlay.mp4?v=2" type="video/mp4"></video>
 <figcaption><span class="caption-label">Figure 1. Contact, adjustment, and entry.</span> The drawer makes limited forward progress while the commanded pose remains ahead. The arm then changes alignment and advances into the opening. The close-up pairs recorded joint targets and encoder readings with reconstructed forward hand displacement and wrist orientation. This qualitative sequence illustrates the contact-and-adjustment behavior; it is not a causal ablation of compliance. Shown at 1× speed.</figcaption>
 </figure>
 <section id="setup">
@@ -40,8 +40,8 @@
 <p>Precise insertion must tolerate an imperfect arm and an imperfect simulator. Even after calibration, the best rigid model misplaces the wrist camera by a median 10 mm. Within simulation, changing the timestep or switching between CPU and GPU shifts the final drawer position by 1–2 cm under the same action sequence. Both effects are larger than the insertion clearances.</p>
 <figure id="demonstrations" class="research-video">
 <div class="video-grid">
-<div><p class="panel-title">(a) Drawer insertion</p><video controls playsinline preload="metadata" poster="assets/drawer_before_insertion.jpg" aria-label="Real robot inserts a drawer into a cabinet, shown at four times speed"><source src="assets/drawer.mp4" type="video/mp4"></video></div>
-<div><p class="panel-title">(b) Charger insertion</p><video controls playsinline preload="metadata" poster="assets/real_plug.png" aria-label="Real robot transfers a charger between adjacent outlets, shown at four times speed"><source src="assets/charger.mp4" type="video/mp4"></video></div>
+<div><p class="panel-title">(a) Drawer insertion</p><video controls autoplay muted loop playsinline preload="auto" poster="assets/drawer_before_insertion.jpg" aria-label="Real robot inserts a drawer into a cabinet, shown at four times speed"><source src="assets/drawer.mp4" type="video/mp4"></video></div>
+<div><p class="panel-title">(b) Charger insertion</p><video controls autoplay muted loop playsinline preload="auto" poster="assets/real_plug.png" aria-label="Real robot transfers a charger between adjacent outlets, shown at four times speed"><source src="assets/charger.mp4" type="video/mp4"></video></div>
 </div>
 <figcaption><span class="caption-label">Figure 3.</span> Real-world execution of image-based policies trained in simulation on a roughly $1,000, 6-DoF arm. The drawer task requires picking, aligning, inserting, and pushing the drawer fully closed. The charger task requires unplugging, transferring, inserting, and releasing the charger. Successful examples are shown at 4× speed.</figcaption>
 </figure>
@@ -86,11 +86,11 @@
 <h2>How Compliance Helps Insertion</h2>
 <p>Finite-gain joint PD control lets the arm yield when contact blocks its commanded motion. Maintaining pressure while changing alignment lets the surface guide the object toward the opening. Compliance and corrective motion work together: pressure alone cannot correct a lateral misalignment. Orange denotes the commanded pose; cyan denotes the actual or measured pose.</p>
 <figure class="research-video">
-<video controls playsinline preload="metadata" poster="assets/contact-insertion-schematic-poster.jpg?v=2" aria-label="Illustrative planar arm presses a block onto a surface, adjusts sideways, and inserts it through a hole"><source src="assets/contact-insertion-schematic.mp4?v=2" type="video/mp4"></video>
+<video controls autoplay muted loop playsinline preload="auto" poster="assets/contact-insertion-schematic-poster.jpg?v=2" aria-label="Illustrative planar arm presses a block onto a surface, adjusts sideways, and inserts it through a hole"><source src="assets/contact-insertion-schematic.mp4?v=2" type="video/mp4"></video>
 <figcaption><span class="caption-label">Figure 5. Contact in cross-section.</span> A planar arm holds a block above a surface with a through-hole. Contact limits descent while a lower target maintains compliant pressure. A sideways correction brings the block over the opening, where descent becomes possible. The small comparison shows why downward pressure at a fixed misalignment remains blocked. Motion is illustrative; there is no back wall or bottom stop.</figcaption>
 </figure>
 <figure class="research-video">
-<video controls playsinline preload="metadata" poster="assets/sim-command-overlay-poster.jpg" aria-label="Simulated drawer insertion with the applied target pose, actual robot pose, and synchronized joint-angle plots"><source src="assets/sim-command-overlay.mp4" type="video/mp4"></video>
+<video controls autoplay muted loop playsinline preload="auto" poster="assets/sim-command-overlay-poster.jpg" aria-label="Simulated drawer insertion with the applied target pose, actual robot pose, and synchronized joint-angle plots"><source src="assets/sim-command-overlay.mp4" type="video/mp4"></video>
 <figcaption><span class="caption-label">Figure 6. Simulated robot motion.</span> Joint tracking during a scripted drawer insertion in simulation. Orange uses the joint target applied by the controller; cyan uses the actual joint positions at that simulation step. Both are projected through the simulator’s camera. Shown at 2× speed.</figcaption>
 </figure>
 </section>
@@ -99,12 +99,12 @@
 <p>The student encounters variation in object placement, physical parameters, camera poses, appearance, backgrounds, and clutter. These 5 × 5 atlases show separate scripted-teacher rollouts across randomized scenes. Display exposure is brightened for visibility; the underlying trajectories and training randomization are unchanged.</p>
 <figure class="research-video">
 <p class="panel-title">Drawer insertion · 25 simulated scenes</p>
-<video class="atlas-video" controls playsinline preload="metadata" poster="assets/drawer-randomization-atlas-poster.jpg?v=2" aria-label="Five by five grid of 25 distinct randomized drawer insertion simulations"><source src="assets/drawer-randomization-atlas.mp4?v=2" type="video/mp4"></video>
+<video class="atlas-video" controls autoplay muted loop playsinline preload="auto" poster="assets/drawer-randomization-atlas-poster.jpg?v=2" aria-label="Five by five grid of 25 distinct randomized drawer insertion simulations"><source src="assets/drawer-randomization-atlas.mp4?v=2" type="video/mp4"></video>
 <figcaption><span class="caption-label">Figure 7. Drawer randomization atlas.</span> Twenty-five independent simulated episodes, shown at 4× speed. Each tile holds its last view when that episode ends. These qualitative examples show the range of scene variation used for camera-based learning.</figcaption>
 </figure>
 <figure class="research-video">
 <p class="panel-title">Charger transfer and insertion · 25 simulated scenes</p>
-<video class="atlas-video" controls playsinline preload="metadata" poster="assets/charger-randomization-atlas-poster.jpg?v=2" aria-label="Five by five grid of 25 distinct randomized charger transfer and insertion simulations"><source src="assets/charger-randomization-atlas.mp4?v=2" type="video/mp4"></video>
+<video class="atlas-video" controls autoplay muted loop playsinline preload="auto" poster="assets/charger-randomization-atlas-poster.jpg?v=2" aria-label="Five by five grid of 25 distinct randomized charger transfer and insertion simulations"><source src="assets/charger-randomization-atlas.mp4?v=2" type="video/mp4"></video>
 <figcaption><span class="caption-label">Figure 8. Charger randomization atlas.</span> Twenty-five independent simulated episodes with the charger task’s object, physics, and appearance randomization, shown at 4× speed. Each tile holds its last view when that episode ends.</figcaption>
 </figure>
 <p class="video-note">All videos include playback speed and step counters. Use the video controls to pause, seek, or view full screen.</p>
